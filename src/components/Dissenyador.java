@@ -11,13 +11,9 @@ import java.util.Scanner;
  *
  * @author root
  */
-public class Dissenyador {
+public class Dissenyador extends Treballador {
 
-    private final static Scanner DADES = new Scanner(System.in);
-
-    private String nif;
-    private String nom;
-    private boolean actiu;
+  
 
     /*
      TODO CONSTRUCTOR
@@ -28,37 +24,14 @@ public class Dissenyador {
      actiu, per tant li assignem verdader.
      */
     public Dissenyador(String nif, String nom) {
-        this.nif = nif;
-        this.nom = nom;
-        actiu = true;
+        
+        super (nif ,nom);
     }
 
     /*
      TODO Mètodes accessors    
      */
-    public String getNif() {
-        return nif;
-    }
-
-    public void setNif(String nif) {
-        this.nif = nif;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public boolean getActiu() {
-        return actiu;
-    }
-
-    public void setActiu(boolean actiu) {
-        this.actiu = actiu;
-    }
+    
 
     /*
      TODO
