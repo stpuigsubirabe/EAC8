@@ -8,13 +8,14 @@ package principal;
 
 import components.Dissenyador;
 import components.Jardiner;
+import components.Component;
 import java.util.Scanner;
 
 /**
  *
  * @author root
  */
-public class Projecte {
+public class Projecte implements Component{
     
     private final static Scanner DADES = new Scanner(System.in);
 

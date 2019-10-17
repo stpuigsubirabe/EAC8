@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author root
  */
-public class Jardiner extends Treballador {
+public class Jardiner extends Treballador implements Component{
     
     private final static Scanner DADES = new Scanner(System.in);
     
@@ -126,4 +126,6 @@ public class Jardiner extends Treballador {
             System.out.print("No actiu");
         }
     }
-}
+    public void showComponent(){}
+    public void updateComponent(){}
+} 

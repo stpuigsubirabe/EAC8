@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author root
  */
-public class Torn {
+public class Torn implements Component {
 
     private final static Scanner DADES = new Scanner(System.in);
 

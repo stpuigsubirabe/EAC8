@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author root
  */
-public class Dissenyador extends Treballador {
+public class Dissenyador extends Treballador implements Component {
 
   
 
@@ -108,4 +108,6 @@ public class Dissenyador extends Treballador {
             System.out.print("No actiu");
         }
     }
+        public void showComponent(){}
+        public void updateComponent(){}
 }
