@@ -71,6 +71,8 @@ public class Dissenyador extends Treballador implements Component {
      i en cas contrari, el misaatge "\nEl dissenyador o dissenyadora no està en actiu".
      Retorn: cap
      */
+    /* METODE PER BORRAR
+    --------------------------------------------------------------------------------
     public void updateDissenyador() {
         System.out.println("\nNIF del dissenyador o dissenyadora: " + nif);
         System.out.println("\nEntra el nou nif:");
@@ -96,7 +98,8 @@ public class Dissenyador extends Treballador implements Component {
             actiu=false;
         }
     }
-
+    --------------------------------------------------------------------------------------------------
+*/
     public void showDissenyador() {
         System.out.println("\nLes dades del dissenyador o dissenyadora amb nif " + nif + " són:");
         System.out.println("\nNom: " + nom);

@@ -13,8 +13,6 @@ import java.util.Scanner;
  */
 public class Jardiner extends Treballador implements Component{
     
-    private final static Scanner DADES = new Scanner(System.in);
-    
     private Torn torn;
     
 
@@ -88,6 +86,8 @@ public class Jardiner extends Treballador implements Component{
      "\nEl jardiner o jardinera no està en actiu".
      Retorn: cap
      */
+    /* METODE PER BORRAR
+    -----------------------------------------------------------------------------------------------
     public void updateJardiner() {
         System.out.println("\nNIF del jardiner o jardinera: " + nif);
         System.out.println("\nEntra el nou nif:");
@@ -113,7 +113,8 @@ public class Jardiner extends Treballador implements Component{
             actiu=false;
         }
     }
-
+-------------------------------------------------------------------------------------------------------------------------    
+*/
     public void showJardiner() {
         System.out.println("\nLes dades del jardiner o jardinera amb nif " + nif + " són:");
         System.out.println("\nNom: " + nom);

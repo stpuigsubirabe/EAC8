@@ -17,8 +17,6 @@ import java.util.Scanner;
  */
 public class Projecte implements Component{
     
-    private final static Scanner DADES = new Scanner(System.in);
-
     private int codi;
     private static int properCodi = 1; //El proper codi a assignar
     private String nifClient;

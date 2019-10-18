@@ -11,10 +11,8 @@ import java.util.Scanner;
  *
  * @author Stephan
  */
-public abstract class Treballador {
+public abstract class Treballador implements Component {
      
-    private final static Scanner DADES = new Scanner(System.in); 
-    
     private String nif;
     private String nom;
     private boolean actiu;
@@ -48,6 +46,32 @@ public abstract class Treballador {
 
     public void setActiu(boolean actiu) {
         this.actiu = actiu;
+    }
+    
+    public void updateComponent() {
+        System.out.println("\nNIF del treballador o treballadora: " + nif);
+        System.out.println("\nEntra el nou nif:");
+        nif = DADES.next();
+        DADES.nextLine(); //Neteja buffer
+        System.out.println("\nNom del treballador o treballadora: " + nom);
+        System.out.println("\nEntra el nou nom:");
+        nom = DADES.nextLine();
+        
+        if(actiu){
+            System.out.println("\nEl treballador o treballadora està en actiu");
+        }else{
+            System.out.println("\nEl treballador o treballadora no està en actiu");
+        }
+        
+        System.out.println("\nEntra el nou estat (1 si està en actiu o 0 en cas contrari):");
+        
+        int estat=DADES.nextInt();
+        
+        if(estat==1){
+            actiu=true;
+        }else{
+            actiu=false;
+        }
     }
     
 }

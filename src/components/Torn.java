@@ -12,8 +12,6 @@ import java.util.Scanner;
  */
 public class Torn implements Component {
 
-    private final static Scanner DADES = new Scanner(System.in);
-
     private String codi;
     private String nom;
     private String horaInici;
