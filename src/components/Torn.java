@@ -104,7 +104,7 @@ public class Torn implements Component {
      - Li heu de mostrar a l'usuari els valors dels atributs abans de modificar-los.
      Retorn: cap
      */
-    public void updateTorn() {
+    public void updateComponent() {
         System.out.println("\nCodi del torn: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -120,7 +120,7 @@ public class Torn implements Component {
         
     }
 
-    public void showTorn() {
+    public void showComponent() {
         System.out.println("\nLes dades del torn amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nHora d'inici: "+horaInici);

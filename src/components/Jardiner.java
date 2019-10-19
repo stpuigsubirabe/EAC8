@@ -115,18 +115,9 @@ public class Jardiner extends Treballador implements Component{
     }
 -------------------------------------------------------------------------------------------------------------------------    
 */
-    public void showJardiner() {
-        System.out.println("\nLes dades del jardiner o jardinera amb nif " + nif + " són:");
-        System.out.println("\nNom: " + nom);
-        torn.showTorn();
-        System.out.println("\nL'estat és: ");
-        
-        if(actiu){
-            System.out.print("Actiu");
-        }else{
-            System.out.print("No actiu");
-        }
+    public void showComponent() {
+        super.showComponent();
+        torn.showComponent();
+
     }
-    public void showComponent(){}
-    public void updateComponent(){}
 } 

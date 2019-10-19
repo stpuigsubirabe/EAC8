@@ -100,6 +100,8 @@ public class Dissenyador extends Treballador implements Component {
     }
     --------------------------------------------------------------------------------------------------
 */
+/* METODE PER BORRAR
+--------------------------------------------------------------------------------
     public void showDissenyador() {
         System.out.println("\nLes dades del dissenyador o dissenyadora amb nif " + nif + " són:");
         System.out.println("\nNom: " + nom);
@@ -111,6 +113,6 @@ public class Dissenyador extends Treballador implements Component {
             System.out.print("No actiu");
         }
     }
-        public void showComponent(){}
-        public void updateComponent(){}
+*/
+       
 }

@@ -73,5 +73,17 @@ public abstract class Treballador implements Component {
             actiu=false;
         }
     }
+    public void showComponent(){
+    
+        System.out.println("\nLes dades del treballador o treballadora amb nif " + nif + " són:");
+        System.out.println("\nNom: " + nom);
+        System.out.println("\nL'estat és: ");
+        
+        if(actiu){
+            System.out.print("Actiu");
+        }else{
+            System.out.print("No actiu");
+        }
+    }
     
 }
