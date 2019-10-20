@@ -6,10 +6,13 @@
  */
 package principal;
 
-import components.Dissenyador;
+/*import components.Dissenyador;
 import components.Jardiner;
+*/
+import components.Treballador;
 import components.Component;
 import java.util.Scanner;
+
 
 /**
  *
@@ -22,10 +25,9 @@ public class Projecte implements Component{
     private String nifClient;
     private boolean finalitzat;
     private double pressupost;
-    private Dissenyador dissenyador;
-    private Jardiner[] jardiners = new Jardiner[40];
-    private int posicioJardiners = 0; //Priemra posició buida del vector jardiners
-    
+    private Treballador[] treballadors = new Treballador[41];
+     //Priemra posició buida del vector treballadors
+    private int posicioTreballadors = 0; 
      /*
      TODO
      CONSTRUCTOR
@@ -188,9 +190,9 @@ public class Projecte implements Component{
      - actualitza la posició del vector jardiners.
      Retorn: cap
      */
-    public void addJardiner(Jardiner jardiner) {
-        jardiners[posicioJardiners] = jardiner;
-        posicioJardiners++;
+    public void addTreballador(Treballador treballador) {
+        treballadors[posicioTreballadors] = treballador;
+        posicioTreballadors++;
     }
 
     public void showProjecte() {
