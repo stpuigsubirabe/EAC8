@@ -5,33 +5,29 @@
  */
 package principal;
 
+import components.Component;
 import components.Dissenyador;
 import components.Jardiner;
 import components.Torn;
-import java.util.Scanner;
+
+
 
 /**
  *
  * @author root
  */
-public class Estudi {
+public class Estudi implements Component {
 
-    private final static Scanner DADES = new Scanner(System.in);
 
     private int codi;
     private static int properCodi = 1; //El proper codi a assignar
     private String nom;
     private String adreca;
-    private Dissenyador[] dissenyadors = new Dissenyador[10];
-    private int posicioDissenyadors = 0; //Priemra posició buida del vector dissenyadors
-    private Jardiner[] jardiners = new Jardiner[40];
-    private int posicioJardiners = 0; //Priemra posició buida del vector jardiners    
-    private Torn[] torns = new Torn[10];
-    private int posicioTorns = 0; //Priemra posició buida del vector torns
-    private Projecte[] projectes = new Projecte[100];
-    private int posicioProjectes = 0; //Possició actual buida del vector projectes
+    private Component[] components = new Component[160];
+    private int posicioComponents = 0;
+   
 
-    /*
+    /* 
      TODO
      CONSTRUCTOR
      Paràmetres: valors per tots els atributs de la classe menys els vectors i el
@@ -83,23 +79,24 @@ public class Estudi {
     public void setAdreca(String adreca) {
         this.adreca = adreca;
     }
-
-    public Dissenyador[] getDissenyadors() {
-        return dissenyadors;
+   
+    public Component[] getComponents() {
+        return components;
     }
 
-    public void setDissenyadors(Dissenyador[] dissenyadors) {
-        this.dissenyadors = dissenyadors;
+    public void setComponents(Component[] components) {
+        this.components = components;
     }
 
-    public int getPosicioDissenyadors() {
-        return posicioDissenyadors;
+    public int getPosicioComponents() {
+        return posicioComponents;
     }
 
-    public void setPosicioDissenyadors(int posicioDissenyadors) {
-        this.posicioDissenyadors = posicioDissenyadors;
+    public void setPosicioComponents(int posicioComponents) {
+        this.posicioComponents = posicioComponents;
     }
-
+/*metodes que potser desapareixen
+    ---------------------------------------------------------------------------
     public Jardiner[] getJardiners() {
         return jardiners;
     }
@@ -147,7 +144,7 @@ public class Estudi {
     public void setPosicioProjectes(int posicioProjectes) {
         this.posicioProjectes = posicioProjectes;
     }
-
+    */
     /*
     TODO
      Paràmetres: cap
@@ -218,14 +215,17 @@ public class Estudi {
 
         Dissenyador nouDissenyador = Dissenyador.addDissenyador();
 
-        if (selectDissenyador(nouDissenyador.getNif()) == -1) {
-            dissenyadors[posicioDissenyadors] = nouDissenyador;
-            posicioDissenyadors++;
-        } else {
-            System.out.println("\nEl dissenyador o dissenyadora ja existeix");
+        if (selectComponent(0,null) == -1) {
+            components[posicioComponents] = nouDissenyador;
+            posicioComponents++;
+        } else if (selectComponent(0,null) == -2) {
+            System.out.println("\nLes dades introduïdes són erronies");
+        }else{
+            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
         }
     }
-
+/* METODE A ESBORRAR
+    ----------------------------------------------------------------------------
     public int selectDissenyador(String nif) {
 
         if (nif == null) {
@@ -233,15 +233,15 @@ public class Estudi {
             nif = DADES.next();
         }
 
-        for (int i = 0; i < posicioDissenyadors; i++) {
-            if (dissenyadors[i].getNif().equals(nif)) {
+        for (int i = 0; i < posicioComponents; i++) {
+            if (components[i].getNif().equals(nif)) {
                 return i;
             }
         }
 
         return -1;
     }
-
+*/
     /*
      JARDINER
      */
@@ -262,13 +262,18 @@ public class Estudi {
 
         Jardiner nouJardiner = Jardiner.addJardiner();
 
-        if (selectJardiner(nouJardiner.getNif()) == -1) {
-            jardiners[posicioJardiners] = nouJardiner;
-            posicioJardiners++;
-        } else {
-            System.out.println("\nEl jardiner o jardinera ja existeix");
+        if (selectComponent(0,null) == -1) {
+            components[posicioComponents] = nouJardiner;
+            posicioComponents++;
+        } else if (selectComponent(0,null) == -2) {
+            System.out.println("\nLes dades introduïdes són erronies");
+        }else{
+            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
         }
     }
+
+/*Metode a esborrar
+------------------------------------------------------------------------    
 
     public int selectJardiner(String nif) {
 
@@ -277,15 +282,15 @@ public class Estudi {
             nif = DADES.next();
         }
 
-        for (int i = 0; i < posicioJardiners; i++) {
-            if (jardiners[i].getNif().equals(nif)) {
+        for (int i = 0; i < posicioComponents; i++) {
+            if (components[i].getNif().equals(nif)) {
                 return i;
             }
         }
 
         return -1;
     }
-    
+*/    
     /*
      TORN
      */
@@ -304,14 +309,18 @@ public class Estudi {
 
         Torn nouTorn = Torn.addTorn();
 
-        if (selectTorn(nouTorn.getCodi()) == -1) {
-            torns[posicioTorns] = nouTorn;
-            posicioTorns++;
-        } else {
-            System.out.println("\nEl torn ja existeix");
+        if (selectComponent(0,null) == -1) {
+            components[posicioComponents] = nouTorn;
+            posicioComponents++;
+        } else if (selectComponent(0,null) == -2) {
+            System.out.println("\nLes dades introduïdes són erronies");
+        }else{
+            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
         }
     }
 
+/*Metode a esborrar
+    ----------------------------------------------------------------------------
     public int selectTorn(String codi) {
 
         if (codi == null) {
@@ -319,15 +328,15 @@ public class Estudi {
             codi = DADES.next();
         }
 
-        for (int i = 0; i < posicioTorns; i++) {
-            if (torns[i].getCodi().equals(codi)) {
+        for (int i = 0; i < posicioComponents; i++) {
+            if (components[i].getCodi().equals(codi)) {
                 return i;
             }
         }
 
         return -1;
     }
-
+*/
     /*
      PROJECTE
      */
@@ -347,14 +356,20 @@ public class Estudi {
 
         Projecte nouProjecte = Projecte.addProjecte();
 
-        if (selectProjecte(nouProjecte.getCodi()) == -1) {
-            projectes[posicioProjectes] = nouProjecte;
-            posicioProjectes++;
-        } else {
-            System.out.println("\nEl projecte ja existeix");
+        if (selectComponent(0,null) == -1) {
+            components[posicioComponents] = nouProjecte;
+            posicioComponents++;
+        } else if (selectComponent(0,null) == -2) {
+            System.out.println("\nLes dades introduïdes són erronies");
+        }else{
+            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
         }
+        
     }
-
+/*
+    Metode a esborrar
+    ----------------------------------------------------------------------------
+    
    public int selectProjecte(Integer codi) {
 
         if (codi == null) {
@@ -362,23 +377,24 @@ public class Estudi {
             codi = DADES.nextInt();
         }
 
-        for (int i = 0; i < posicioProjectes; i++) {
-            if (projectes[i].getCodi()==(codi)) {
+        for (int i = 0; i < posicioComponents; i++) {
+            if (components[i].getCodi()==(codi)) {
                 return i;
             }
         }
 
         return -1;
     }
-
+*/
+/* Metode a Modificar falta indiccar a quina classe pertany Component
     public void addTornJardiner() {
         
         Jardiner jardinerSel = null;
-        int pos = selectJardiner(null);
+        int pos = selectComponent(2,null);
 
         if (pos >= 0) {
 
-            jardinerSel = this.getJardiners()[pos];
+            jardinerSel = this.getComponents()[pos];
 
             pos = selectTorn(null);
 
@@ -393,8 +409,10 @@ public class Estudi {
         }
 
     }
-
-
+*/
+/* métodes que desapareixen
+    ----------------------------------------------------------------------------
+    
     public void addDissenyadorProjecte() {
         Projecte projecteSel = null;
         int pos = selectProjecte(null);
@@ -436,4 +454,121 @@ public class Estudi {
             System.out.println("\nNo existeix aquest projecte");
         }
     }
+    */
+    
+    public void addTreballadorProjecte(int tipus){
+        
+      int pos;
+      if (verificarProjecte()){
+      pos = selectComponent(4,null);
+      
+      }
+    
+      
+    /*
+    Tipus pot ser tipus=1 → Dissenyador i tipus=2 → Jardiner   
+        */ 
+    switch (tipus){
+        case 1:
+            
+            break;
+        case 2:
+            break;
+    
+    }
+    }
+    public int selectComponent(int tipus, Object id){
+        
+        if (tipus == 0) {
+            System.out.println("\nQuin tipus de component vols seleccionar ?:"
+                                +"\n 1=Dissenyador, 2=Jardiner, 3=Torn o 4=Projecte");
+            tipus = DADES.nextInt();
+        }
+        if (id == null) {
+            
+            System.out.println("Introdueixi l’ id del component a seleccionar :");
+            id = DADES.next();
+        }
+        switch(tipus){
+        
+            case 1: 
+                if (id instanceof Dissenyador){
+                    for (int i = 0; i < posicioComponents; i++) {
+                        if (components[i].equals(id)) {
+                            return i;
+                    }
+                }
+                }else{
+                    System.out.println("el tipus de component no es correcte:");
+                    return -2;    
+                }
+                            
+                break;
+            case 2: 
+                if (id instanceof Jardiner){
+                    for (int i = 0; i < posicioComponents; i++) {
+                        if (components[i].equals(id)) {
+                            return i;
+                        }
+                }
+                }else{
+                    System.out.println("el tipus de component no es correcte:");
+                    return -2;
+                }
+                
+                break;
+            case 3:
+                if (id instanceof Torn){
+                    for (int i = 0; i < posicioComponents; i++) {
+                        if (components[i].equals(id)) {
+                            return i;
+                        }
+                }
+                }else{
+                    System.out.println("el tipus de component no es correcte:");
+                    return -2;
+                }
+                
+                break;
+            case 4: 
+                if (id instanceof Projecte){
+                    for (int i = 0; i < posicioComponents; i++) {
+                        if (components[i].equals(id)) {
+                            return i;
+                        }
+                }
+                }else{
+                    System.out.println("el tipus de component no es correcte:");
+                return -2;
+                }
+                
+                break;
+            default:
+                break;
+                
+        }
+
+        return -1;
+    }
+    
+    /* Aquest métode el farem servir per cpmprovar si un projecte concret 
+       es troba dins el vector components */
+    
+    public boolean verificarProjecte(){
+    
+    int posProjecte = selectComponent(4,null);
+    
+        if (posProjecte == -1 || posProjecte ==-2 ){
+           System.out.println("\nNo existeix aquest projecte"); 
+           return false;    
+           
+        }else{
+         return true;   
+        }
+    }
+    
+        public void updateComponent(){}
+        public void showComponent(){}
+    
+    
 }

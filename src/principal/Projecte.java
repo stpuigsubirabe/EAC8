@@ -6,17 +6,14 @@
  */
 package principal;
 
-/*import components.Dissenyador;
-import components.Jardiner;
-*/
 import components.Treballador;
 import components.Component;
-import java.util.Scanner;
+
 
 
 /**
  *
- * @author root
+ * @author Stephan Puigsubira Berenguer
  */
 public class Projecte implements Component{
     
@@ -48,7 +45,6 @@ public class Projecte implements Component{
         this.nifClient = nifClient;
         this.finalitzat = false;
         this.pressupost = pressupost;
-        this.dissenyador = null;
     }
     
     /*
@@ -95,28 +91,23 @@ public class Projecte implements Component{
         this.pressupost = pressupost;
     }
 
-    public Dissenyador getDissenyador() {
-        return dissenyador;
+    public Treballador[] getTreballadors() {
+        return treballadors;
     }
 
-    public void setDissenyador(Dissenyador dissenyador) {
-        this.dissenyador = dissenyador;
+    public void setTreballadors(Treballador[] treballadors) {
+        this.treballadors = treballadors;
+    }
+    public void setTreballador(Treballador treballador, int pos){
+        treballadors[pos]= treballador;
     }
 
-    public Jardiner[] getJardiners() {
-        return jardiners;
+    public int getPosicioTreballadors() {
+        return posicioTreballadors;
     }
 
-    public void setJardiners(Jardiner[] jardiners) {
-        this.jardiners = jardiners;
-    }
-
-    public int getPosicioJardiners() {
-        return posicioJardiners;
-    }
-
-    public void setPosicioJardiners(int posicioJardiners) {
-        this.posicioJardiners = posicioJardiners;
+    public void setPosicioTreballadors(int posicioTreballadors) {
+        this.posicioTreballadors = posicioTreballadors;
     }
 
      /*
@@ -155,7 +146,7 @@ public class Projecte implements Component{
      i en cas contrari, el missatge "\nEl projecte no està finalitzat".
      Retorn: cap
      */
-    public void updateProjecte() {
+    public void updateComponent() {
 
         System.out.println("\nNIF del client: " + nifClient);
         System.out.println("\nEntra el nou NIF:");
@@ -195,20 +186,21 @@ public class Projecte implements Component{
         posicioTreballadors++;
     }
 
-    public void showProjecte() {
+    public void showComponent() {
         System.out.println("\nLes dades del projecte amb codi " + codi + " són:");
         System.out.println("\nNIF client: " + nifClient);
         System.out.println("\nPressupost: " + pressupost);
-        dissenyador.showDissenyador();
-        
+       /* com mostrar dissenyador Treballador[x] 
+       dissenyador.showDissenyador();
+       */ 
         if(finalitzat){
             System.out.println("\nEl projecte està finalitzat");
         }else{
             System.out.println("\nEl projecte no està finalitzat");
         }
 
-        for (int i = 0; i < posicioJardiners; i++) {
-            jardiners[i].showJardiner();
+        for (int i = 0; i < posicioTreballadors; i++) {
+            treballadors[i].showComponent();
         }
     }
     

@@ -19,4 +19,6 @@ public interface Component {
     public void updateComponent();
     public void showComponent();
     
+ 
+    
 }

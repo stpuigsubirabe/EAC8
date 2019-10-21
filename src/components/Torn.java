@@ -4,7 +4,6 @@
  */
 package components;
 
-import java.util.Scanner;
 
 /**
  *

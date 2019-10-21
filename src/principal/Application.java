@@ -1,6 +1,7 @@
 package principal;
 
 import java.util.Scanner;
+import components.Dissenyador;
 
 /**
  *
@@ -44,23 +45,23 @@ public class Application {
                         System.out.println("\nPrimer s'ha de seleccionar l'estudi al menú Gestió d'estudis");
                     }
                     break;
-                case 3:
+                case 3: 
                     if (estudiActual != null) {
-                        menuDissenyadors();
+                        menuComponents(1);
                     } else {
                         System.out.println("\nPrimer s'ha de seleccionar l'estudi al menú Gestió d'estudis");
                     }
                     break;
                 case 4:
                     if (estudiActual != null) {
-                        menuJardiners();
+                        menuComponents(2);
                     } else {
                         System.out.println("\nPrimer s'ha de seleccionar l'estudi al menú Gestió d'estudis");
                     }
                     break;
                 case 5:
                     if (estudiActual != null) {
-                        menuTorns();
+                        menuComponents(3);
                     } else {
                         System.out.println("\nPrimer s'ha de seleccionar l'estudi al menú Gestió d'estudis");
                     }
@@ -139,6 +140,9 @@ public class Application {
      no controlem que l'usuari introdueixi una opció numèrica, ja que això ho farem amb la
      tècnica de les excepcions que veurem més endavant
      */
+    /*menu que desapareix
+    ----------------------------------------------------------------------------
+    
     public static void menuDissenyadors() {
         int opcio = 0;
 
@@ -174,7 +178,7 @@ public class Application {
             }
         } while (opcio != 0);
     }
-
+*/
     /*
      TODO Heu de desenvolupar el menuJardiners amb les opcions que podeu veure.
      Nota: penseu que quan arribem aquí, l'atribut estudiActual no és null
@@ -197,6 +201,8 @@ public class Application {
      no controlem que l'usuari introdueixi una opció numèrica, ja que això ho farem amb la
      tècnica de les excepcions que veurem més endavant
      */
+/*menu que desapareix
+    ----------------------------------------------------------------------------
     public static void menuJardiners() {
         int opcio = 0;
 
@@ -236,7 +242,7 @@ public class Application {
             }
         } while (opcio != 0);
     }
-
+*/
     /*
      TODO Heu de desenvolupar el menuTorns amb les opcions que podeu veure.
      Nota: penseu que quan arribem aquí, l'atribut estudiActual no és null
@@ -257,6 +263,8 @@ public class Application {
      no controlem que l'usuari introdueixi una opció numèrica, ja que això ho farem amb la
      tècnica de les excepcions que veurem més endavant
      */
+/*menu que desapareix
+    ----------------------------------------------------------------------------
     public static void menuTorns() {
         int opcio = 0;
 
@@ -292,7 +300,7 @@ public class Application {
             }
         } while (opcio != 0);
     }
-
+*/
     /*
      TODO Heu de desenvolupar el menuProjectes amb les opcions que podeu veure.
      Nota: penseu que quan arribem aquí, l'atribut estudiActual no és null
@@ -315,6 +323,52 @@ public class Application {
      no controlem que l'usuari introdueixi una opció numèrica, ja que això ho farem amb la
      tècnica de les excepcions que veurem més endavant
      */
+    //dissenyador=1, jardiner=2 i torn=3.
+    public static void menuComponents(int tipus) {
+        int opcio = 0;
+
+        do {
+            System.out.println("\nSelecciona una opció");
+            System.out.println("\n0. Sortir");
+            System.out.println("\n1. Alta");
+            System.out.println("\n2. Modificar");
+            switch (tipus) {
+                case 1:
+                    System.out.println("\n3. Llista de dissenyadors i dissenyadores");
+                case 2:
+                    System.out.println("\n3. Llista de jardiners i jardineres");
+                    System.out.println("\n4. Assignar torn");
+                case 3:
+                    System.out.println("\n3. Llista de torns");      
+            }
+            opcio = DADES.nextInt();
+            switch (opcio) {
+                case 0:
+                    break;
+                case 1:
+                    estudiActual.addDissenyador();
+                    break;
+                case 2:
+                    int indexSel = estudiActual.selectComponent(tipus,null);
+                    if (indexSel >= 0) {
+                        estudiActual.getComponents()[indexSel].updateComponent();
+                    } else {
+                        System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
+                        if (estudiActual.getComponents()[i] instanceof Dissenyador){
+                                estudiActual.getComponents()[i].showComponent();
+                        }
+                    }
+                    break;
+                default:
+                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                    break;
+            }
+        } while (opcio != 0);
+    }
     public static void menuProjectes() {
         int opcio = 0;
 
@@ -334,23 +388,25 @@ public class Application {
                     estudiActual.addProjecte();
                     break;
                 case 2:
-                    int indexSel = estudiActual.selectProjecte(null);
+                    int indexSel = estudiActual.selectComponent(4,null);
                     if (indexSel >= 0) {
-                        estudiActual.getProjectes()[indexSel].updateProjecte();
+                        estudiActual.getComponents()[indexSel].updateComponent();
                     } else {
                         System.out.println("\nNo existeix aquest projecte");
                     }
                     break;
                 case 3:
-                    estudiActual.addDissenyadorProjecte();
+                    estudiActual.addTreballadorProjecte(1);
                     break;
                 case 4:
-                    estudiActual.addJardinerProjecte();
+                    estudiActual.addTreballadorProjecte(2);
                     break;
                 case 5:
-                    for (int i = 0; i < estudiActual.getPosicioProjectes(); i++) {
-                        estudiActual.getProjectes()[i].showProjecte();
-                    }
+                    for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
+                        if (estudiActual.getComponents()[i] instanceof Dissenyador){
+                                estudiActual.getComponents()[i].showComponent();
+                        }
+                    }    
                     break;
                 default:
                     System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
