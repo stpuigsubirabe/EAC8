@@ -8,6 +8,7 @@ package principal;
 
 import components.Treballador;
 import components.Component;
+import components.Dissenyador;
 
 
 
@@ -98,10 +99,7 @@ public class Projecte implements Component{
     public void setTreballadors(Treballador[] treballadors) {
         this.treballadors = treballadors;
     }
-    public void setTreballador(Treballador treballador, int pos){
-        treballadors[pos]= treballador;
-    }
-
+ 
     public int getPosicioTreballadors() {
         return posicioTreballadors;
     }
@@ -202,6 +200,15 @@ public class Projecte implements Component{
         for (int i = 0; i < posicioTreballadors; i++) {
             treballadors[i].showComponent();
         }
+    }
+    public boolean comprobarDissenyador(){
+        
+        for (int i = 0; i< posicioTreballadors; i++){
+            if(treballadors[i] instanceof Dissenyador){
+                return true;
+            }
+        }
+        return false;
     }
     
 }

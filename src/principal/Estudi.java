@@ -458,24 +458,49 @@ public class Estudi implements Component {
     
     public void addTreballadorProjecte(int tipus){
         
-      int pos;
-      if (verificarProjecte()){
-      pos = selectComponent(4,null);
-      
-      }
-    
-      
-    /*
-    Tipus pot ser tipus=1 → Dissenyador i tipus=2 → Jardiner   
-        */ 
-    switch (tipus){
-        case 1:
-            
-            break;
-        case 2:
-            break;
-    
-    }
+        Projecte projecteSel = null;
+        int pos = selectComponent(4,null);
+
+        if (pos >= 0) {
+
+            projecteSel = ((Projecte)getComponents()[pos]);;
+            /*
+            Tipus pot ser tipus=1 → Dissenyador i tipus=2 → Jardiner   
+                */ 
+            switch (tipus){
+                // En cas de que sigui un dissenyador
+
+                case 1:
+                // Primer comprovem que no hi hagi cap dissenyador assignat.    
+                    if (!projecteSel.comprobarDissenyador()){
+                        
+                        pos = selectComponent(1,null);
+                        Dissenyador disenyador = ((Dissenyador)getComponents()[pos]) ; 
+
+                        if (pos >= 0) {
+                            projecteSel.addTreballador(disenyador);
+                        } else {
+                            System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
+                        }
+                    }else{
+                            System.out.println("\nEl projecte ja té assignat un dissenyador o dissenyadora");
+                    }
+                    break;
+                // En cas de que sigui un jardiner
+                case 2:
+                    pos = selectComponent(2,null);
+                    Jardiner jardiner = ((Jardiner)getComponents()[pos]) ; 
+
+                    if (pos >= 0) {
+                        projecteSel.addTreballador(jardiner);
+                    } else {
+                        System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
+                    }
+                    break;
+                }
+            } else {
+                System.out.println("\nNo existeix aquest projecte");
+        }
     }
     public int selectComponent(int tipus, Object id){
         
