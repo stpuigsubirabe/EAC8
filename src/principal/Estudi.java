@@ -179,9 +179,10 @@ public class Estudi implements Component {
      actual, abans de modificar-los.
      Retorn: cap
      */
-    public void updateEstudi() {
+    public void updateComponent() {
 
         System.out.println("\nNom de l'estudi: " + nom);
+        DADES.nextLine(); //Neteja buffer
         System.out.println("\nEntra el nou nom:");
         nom = DADES.nextLine();
         System.out.println("\nAdreça de l'estudi: " + adreca);
@@ -189,7 +190,7 @@ public class Estudi implements Component {
         adreca = DADES.next();
     }
 
-    public void showEstudi() {
+    public void showComponent() {
         System.out.println("\nLes dades de l'estudi amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nAdreça: " + adreca);
@@ -356,13 +357,11 @@ public class Estudi implements Component {
 
         Projecte nouProjecte = Projecte.addProjecte();
 
-        if (selectComponent(0,null) == -1) {
+        if (selectComponent(4,nouProjecte.getCodi()) == -1) {
             components[posicioComponents] = nouProjecte;
             posicioComponents++;
-        } else if (selectComponent(0,null) == -2) {
-            System.out.println("\nLes dades introduïdes són erronies");
-        }else{
-            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
+        } else {
+            System.out.println("\nEl projecte ja existeix ");
         }
         
     }
@@ -509,62 +508,82 @@ public class Estudi implements Component {
                                 +"\n 1=Dissenyador, 2=Jardiner, 3=Torn o 4=Projecte");
             tipus = DADES.nextInt();
         }
-        if (id == null) {
-            
-            System.out.println("Introdueixi l’ id del component a seleccionar :");
-            id = DADES.next();
-        }
+
         switch(tipus){
         
             case 1: 
-                if (id instanceof Dissenyador){
+                if (id == null) {
+            
+                System.out.println("Introdueixi l’ id del dissenyador a seleccionar :");
+                id = DADES.next();
+
+                }
+                String idDissenyador =(String)id;
                     for (int i = 0; i < posicioComponents; i++) {
-                        if (components[i].equals(id)) {
-                            return i;
-                    }
+                        if (components[i] instanceof Dissenyador) {
+                            String nifDissenyador =((Dissenyador)components[i]).getNif();
+                            if(nifDissenyador.equals(idDissenyador) ){
+                            return i;}
+                        }else{ 
+                            return -1;
+                        }                
                 }
-                }else{
-                    System.out.println("el tipus de component no es correcte:");
-                    return -2;    
-                }
-                            
-                break;
+            break;
             case 2: 
-                if (id instanceof Jardiner){
-                    for (int i = 0; i < posicioComponents; i++) {
-                        if (components[i].equals(id)) {
-                            return i;
-                        }
+                if (id == null) {
+            
+                System.out.println("Introdueixi l’ id del jardiner a seleccionar :");
+                id = DADES.next();
+
                 }
-                }else{
-                    System.out.println("el tipus de component no es correcte:");
-                    return -2;
+                String idJardiner =(String)id;
+                    for (int i = 0; i < posicioComponents; i++) {
+                        if (components[i] instanceof Jardiner) {
+                            String nifJardiner =((Jardiner)components[i]).getNif();
+                            if(nifJardiner.equals(idJardiner) ){
+                            return i;}
+                        }else{ 
+                            return -1;
+                        }                
                 }
                 
-                break;
+            break;
             case 3:
-                if (id instanceof Torn){
-                    for (int i = 0; i < posicioComponents; i++) {
-                        if (components[i].equals(id)) {
-                            return i;
-                        }
+                if (id == null) {
+            
+                System.out.println("Introdueixi l’ id del torn a seleccionar :");
+                id = DADES.next();
+
                 }
-                }else{
-                    System.out.println("el tipus de component no es correcte:");
-                    return -2;
+                String idTorn =(String)id;
+                    for (int i = 0; i < posicioComponents; i++) {
+                        if (components[i] instanceof Torn) {
+                            String codiTorn =((Torn)components[i]).getCodi();
+                            if(codiTorn.equals(idTorn) ){
+                            return i;}
+                        }else{ 
+                            return -1;
+                        }                
                 }
                 
                 break;
-            case 4: 
-                if (id instanceof Projecte){
+            case 4:
+                
+            if (id == null) {
+            
+            System.out.println("Introdueixi l’ id del projecte a seleccionar :");
+            id = DADES.nextInt();
+            
+            }
+                Integer idObjecte =(Integer)id;
                     for (int i = 0; i < posicioComponents; i++) {
-                        if (components[i].equals(id)) {
-                            return i;
-                        }
-                }
-                }else{
-                    System.out.println("el tipus de component no es correcte:");
-                return -2;
+                        if (components[i] instanceof Projecte) {
+                            int codiprojecte =((Projecte)components[i]).getCodi();
+                            if(codiprojecte == idObjecte){
+                            return i;}
+                        }else{ 
+                            return -1;
+                        }                
                 }
                 
                 break;
@@ -591,9 +610,5 @@ public class Estudi implements Component {
          return true;   
         }
     }
-    
-        public void updateComponent(){}
-        public void showComponent(){}
-    
-    
+                    
 }

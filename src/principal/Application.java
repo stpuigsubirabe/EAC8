@@ -103,14 +103,14 @@ public class Application {
                 case 3:
                     indexSel = selectEstudi();
                     if (indexSel >= 0) {
-                        estudis[indexSel].updateEstudi();
+                        estudis[indexSel].updateComponent();
                     } else {
                         System.out.println("\nNo existeix aquest estudi");
                     }
                     break;
                 case 4:
                     for (int i = 0; i < posicioEstudis; i++) {
-                        estudis[i].showEstudi();
+                        estudis[i].showComponent();
                     }
                     break;
                 default:
@@ -403,7 +403,7 @@ public class Application {
                     break;
                 case 5:
                     for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
-                        if (estudiActual.getComponents()[i] instanceof Dissenyador){
+                        if (estudiActual.getComponents()[i] instanceof Projecte){
                                 estudiActual.getComponents()[i].showComponent();
                         }
                     }    
