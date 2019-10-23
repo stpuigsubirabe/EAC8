@@ -548,7 +548,7 @@ public class Estudi implements Component {
                 }
                 
             break;
-            case 3:
+            case 3: 
                 if (id == null) {
             
                 System.out.println("Introdueixi l’ id del torn a seleccionar :");
