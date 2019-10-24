@@ -335,11 +335,14 @@ public class Application {
             switch (tipus) {
                 case 1:
                     System.out.println("\n3. Llista de dissenyadors i dissenyadores");
+                    break;
                 case 2:
                     System.out.println("\n3. Llista de jardiners i jardineres");
                     System.out.println("\n4. Assignar torn");
+                    break;
                 case 3:
-                    System.out.println("\n3. Llista de torns");      
+                    System.out.println("\n3. Llista de torns");
+                    break;
             }
             opcio = DADES.nextInt();
             switch (opcio) {

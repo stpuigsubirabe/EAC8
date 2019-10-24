@@ -216,11 +216,9 @@ public class Estudi implements Component {
 
         Dissenyador nouDissenyador = Dissenyador.addDissenyador();
 
-        if (selectComponent(0,null) == -1) {
+        if (selectComponent(1,nouDissenyador.getNif()) == -1) {
             components[posicioComponents] = nouDissenyador;
             posicioComponents++;
-        } else if (selectComponent(0,null) == -2) {
-            System.out.println("\nLes dades introduïdes són erronies");
         }else{
             System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
         }
@@ -571,9 +569,10 @@ public class Estudi implements Component {
                 
             if (id == null) {
             
-            System.out.println("Introdueixi l’ id del projecte a seleccionar :");
+            System.out.println("Introdueixi el codi del projecte a seleccionar :");
             id = DADES.nextInt();
-            
+            System.out.println("Pulsa \"Enter\" :");
+            DADES.nextLine(); //Neteja buffer
             }
                 Integer idObjecte =(Integer)id;
                     for (int i = 0; i < posicioComponents; i++) {
