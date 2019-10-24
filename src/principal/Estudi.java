@@ -379,6 +379,9 @@ public class Estudi implements Component {
         return -1;
     }
 */
+/* METODE PER ESBOORRAR A PASSAT A APPLICATION
+    ----------------------------------------------------------------------------
+    
     public void addTornJardiner() {        
     // Seleccionem jardiner    
         Jardiner jardinerSel;
@@ -403,7 +406,7 @@ public class Estudi implements Component {
             System.out.println("\nNo existeix aquest jardiner o jardinera");
         }        
     }
-
+*/
 /* métodes que desapareixen
     ----------------------------------------------------------------------------
     

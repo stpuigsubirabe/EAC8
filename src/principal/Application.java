@@ -345,7 +345,7 @@ public class Application {
                                     estudiActual.addDissenyador();
                                     break;
                                 case 2:
-                                    int indexSel = estudiActual.selectComponent(tipus,null);
+                                    int indexSel = estudiActual.selectComponent(1,null);
                                     if (indexSel >= 0) {
                                         estudiActual.getComponents()[indexSel].updateComponent();
                                     } else {
@@ -376,7 +376,7 @@ public class Application {
                                         estudiActual.addJardiner();
                                         break;
                                     case 2:
-                                        int indexSel = estudiActual.selectComponent(tipus,null);
+                                        int indexSel = estudiActual.selectComponent(2,null);
                                         if (indexSel >= 0) {
                                             estudiActual.getComponents()[indexSel].updateComponent();
                                         } else {
@@ -392,14 +392,14 @@ public class Application {
                                         break;
                                     case 4:
                                         // Seleccionem jardiner    
-                                            Jardiner jardinerSel;
-                                            indexSel = estudiActual.selectComponent(2,null);
-                                            if (indexSel >= 0) {
-                                                jardinerSel = (Jardiner)estudiActual.getComponents()[indexSel];
+                                            Jardiner jardinerSel; 
+                                            int posComponent = estudiActual.selectComponent(2,null);
+                                            if (posComponent >= 0) {
+                                                jardinerSel = (Jardiner)estudiActual.getComponents()[posComponent];
                                             // Seleccionem Torn
                                                 indexSel = estudiActual.selectComponent(3,null);
-                                                if (indexSel >= 0) {
-                                                    Torn tornsel = (Torn)estudiActual.getComponents()[indexSel];
+                                                if (posComponent >= 0) {
+                                                    Torn tornsel = (Torn)estudiActual.getComponents()[posComponent];
                                             // Assignem torn al jardiner
                                                     jardinerSel.setTorn(tornsel);
                                                 } else {
@@ -425,7 +425,7 @@ public class Application {
                                         estudiActual.addTorn();
                                         break;
                                     case 2:
-                                        int indexSel = estudiActual.selectComponent(tipus,null);
+                                        int indexSel = estudiActual.selectComponent(3,null);
                                         if (indexSel >= 0) {
                                             estudiActual.getComponents()[indexSel].updateComponent();
                                         } else {
