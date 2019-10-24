@@ -261,13 +261,11 @@ public class Estudi implements Component {
 
         Jardiner nouJardiner = Jardiner.addJardiner();
 
-        if (selectComponent(0,null) == -1) {
+        if (selectComponent(2,nouJardiner.getNif()) == -1) {
             components[posicioComponents] = nouJardiner;
             posicioComponents++;
-        } else if (selectComponent(0,null) == -2) {
-            System.out.println("\nLes dades introduïdes són erronies");
         }else{
-            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
+            System.out.println("\nEl jardiner o jardinera ja existeix ");
         }
     }
 
@@ -308,13 +306,11 @@ public class Estudi implements Component {
 
         Torn nouTorn = Torn.addTorn();
 
-        if (selectComponent(0,null) == -1) {
+        if (selectComponent(3,nouTorn.getCodi()) == -1) {
             components[posicioComponents] = nouTorn;
             posicioComponents++;
-        } else if (selectComponent(0,null) == -2) {
-            System.out.println("\nLes dades introduïdes són erronies");
         }else{
-            System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
+            System.out.println("\nAquest torn ja existeix ");
         }
     }
 
@@ -383,30 +379,31 @@ public class Estudi implements Component {
         return -1;
     }
 */
-/* Metode a Modificar falta indiccar a quina classe pertany Component
-    public void addTornJardiner() {
+    public void addTornJardiner() {        
+    // Seleccionem jardiner    
+        Jardiner jardinerSel;
         
-        Jardiner jardinerSel = null;
-        int pos = selectComponent(2,null);
+        int posComponents = selectComponent(2,null);
+        if (posComponents >= 0) {
+            jardinerSel = (Jardiner)getComponents()[posComponents];
 
-        if (pos >= 0) {
-
-            jardinerSel = this.getComponents()[pos];
-
-            pos = selectTorn(null);
-
-            if (pos >= 0) {
-                jardinerSel.setTorn(getTorns()[pos]);
+        // Seleccionem Torn
+        
+            posComponents = selectComponent(3,null);
+            if (posComponents >= 0) {
+                Torn tornsel = (Torn)getComponents()[posComponents];
+                
+        // Assignem torn al jardiner
+                jardinerSel.setTorn(tornsel);
+                
             } else {
                 System.out.println("\nNo existeix aquest torn");
             }
-
         } else {
             System.out.println("\nNo existeix aquest jardiner o jardinera");
-        }
-
+        }        
     }
-*/
+
 /* métodes que desapareixen
     ----------------------------------------------------------------------------
     

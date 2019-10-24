@@ -2,6 +2,7 @@ package principal;
 
 import java.util.Scanner;
 import components.Dissenyador;
+import components.Jardiner;
 
 /**
  *
@@ -335,42 +336,77 @@ public class Application {
             switch (tipus) {
                 case 1:
                     System.out.println("\n3. Llista de dissenyadors i dissenyadores");
+                    opcio = DADES.nextInt();
+                            switch (opcio) {
+                                case 0:
+                                    break;
+                                case 1:
+                                    estudiActual.addDissenyador();
+                                    break;
+                                case 2:
+                                    int indexSel = estudiActual.selectComponent(tipus,null);
+                                    if (indexSel >= 0) {
+                                        estudiActual.getComponents()[indexSel].updateComponent();
+                                    } else {
+                                        System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
+                                    }
+                                    break;
+                                case 3:
+                                    for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
+                                        if (estudiActual.getComponents()[i] instanceof Dissenyador){
+                                                estudiActual.getComponents()[i].showComponent();
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                                    break;
+                            }
+       
                     break;
                 case 2:
                     System.out.println("\n3. Llista de jardiners i jardineres");
                     System.out.println("\n4. Assignar torn");
+                        opcio = DADES.nextInt();
+                            switch (opcio) {
+                                case 0:
+                                    break;
+                                case 1:
+                                    estudiActual.addJardiner();
+                                    break;
+                                case 2:
+                                    int indexSel = estudiActual.selectComponent(tipus,null);
+                                    if (indexSel >= 0) {
+                                        estudiActual.getComponents()[indexSel].updateComponent();
+                                    } else {
+                                        System.out.println("\nNo existeix aquest jardiner o jardinera");
+                                    }
+                                    break;
+                                case 3:
+                                    for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
+                                        if (estudiActual.getComponents()[i] instanceof Jardiner){
+                                                estudiActual.getComponents()[i].showComponent();
+                                        }
+                                    }
+                                case 4:
+                                    for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
+                                        if (estudiActual.getComponents()[i] instanceof Jardiner){
+                                                estudiActual.getComponents()[i].showComponent();
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                                    break;
+                            }
+       
                     break;
                 case 3:
                     System.out.println("\n3. Llista de torns");
                     break;
             }
-            opcio = DADES.nextInt();
-            switch (opcio) {
-                case 0:
-                    break;
-                case 1:
-                    estudiActual.addDissenyador();
-                    break;
-                case 2:
-                    int indexSel = estudiActual.selectComponent(tipus,null);
-                    if (indexSel >= 0) {
-                        estudiActual.getComponents()[indexSel].updateComponent();
-                    } else {
-                        System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
-                    }
-                    break;
-                case 3:
-                    for (int i = 0; i < estudiActual.getPosicioComponents(); i++) {
-                        if (estudiActual.getComponents()[i] instanceof Dissenyador){
-                                estudiActual.getComponents()[i].showComponent();
-                        }
-                    }
-                    break;
-                default:
-                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
-                    break;
-            }
-        } while (opcio != 0);
+            } while (opcio != 0);
+            
     }
     public static void menuProjectes() {
         int opcio = 0;
