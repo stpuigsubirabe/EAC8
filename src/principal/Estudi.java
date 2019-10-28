@@ -95,56 +95,6 @@ public class Estudi implements Component {
     public void setPosicioComponents(int posicioComponents) {
         this.posicioComponents = posicioComponents;
     }
-/*metodes que potser desapareixen
-    ---------------------------------------------------------------------------
-    public Jardiner[] getJardiners() {
-        return jardiners;
-    }
-
-    public void setJardiners(Jardiner[] jardiners) {
-        this.jardiners = jardiners;
-    }
-
-    public int getPosicioJardiners() {
-        return posicioJardiners;
-    }
-
-    public void setPosicioJardiners(int posicioJardiners) {
-        this.posicioJardiners = posicioJardiners;
-    }
-
-    public Torn[] getTorns() {
-        return torns;
-    }
-
-    public void setTorns(Torn[] torns) {
-        this.torns = torns;
-    }
-
-    public int getPosicioTorns() {
-        return posicioTorns;
-    }
-
-    public void setPosicioTorns(int posicioTorns) {
-        this.posicioTorns = posicioTorns;
-    }    
-
-    public Projecte[] getProjectes() {
-        return projectes;
-    }
-
-    public void setProjectes(Projecte[] projectes) {
-        this.projectes = projectes;
-    }
-
-    public int getPosicioProjectes() {
-        return posicioProjectes;
-    }
-
-    public void setPosicioProjectes(int posicioProjectes) {
-        this.posicioProjectes = posicioProjectes;
-    }
-    */
     /*
     TODO
      Paràmetres: cap
@@ -223,24 +173,6 @@ public class Estudi implements Component {
             System.out.println("\nEl dissenyador o dissenyadora ja existeix ");
         }
     }
-/* METODE A ESBORRAR
-    ----------------------------------------------------------------------------
-    public int selectDissenyador(String nif) {
-
-        if (nif == null) {
-            System.out.println("\nNIF del dissenyador o dissenyadora?:");
-            nif = DADES.next();
-        }
-
-        for (int i = 0; i < posicioComponents; i++) {
-            if (components[i].getNif().equals(nif)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-*/
     /*
      JARDINER
      */
@@ -269,25 +201,6 @@ public class Estudi implements Component {
         }
     }
 
-/*Metode a esborrar
-------------------------------------------------------------------------    
-
-    public int selectJardiner(String nif) {
-
-        if (nif == null) {
-            System.out.println("\nNIF del jardiner o jardinera?:");
-            nif = DADES.next();
-        }
-
-        for (int i = 0; i < posicioComponents; i++) {
-            if (components[i].getNif().equals(nif)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-*/    
     /*
      TORN
      */
@@ -313,25 +226,6 @@ public class Estudi implements Component {
             System.out.println("\nAquest torn ja existeix ");
         }
     }
-
-/*Metode a esborrar
-    ----------------------------------------------------------------------------
-    public int selectTorn(String codi) {
-
-        if (codi == null) {
-            System.out.println("\nCodi del torn?:");
-            codi = DADES.next();
-        }
-
-        for (int i = 0; i < posicioComponents; i++) {
-            if (components[i].getCodi().equals(codi)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-*/
     /*
      PROJECTE
      */
@@ -359,99 +253,6 @@ public class Estudi implements Component {
         }
         
     }
-/*
-    Metode a esborrar
-    ----------------------------------------------------------------------------
-    
-   public int selectProjecte(Integer codi) {
-
-        if (codi == null) {
-            System.out.println("\nCodi del Projecte?:");
-            codi = DADES.nextInt();
-        }
-
-        for (int i = 0; i < posicioComponents; i++) {
-            if (components[i].getCodi()==(codi)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-*/
-/* METODE PER ESBOORRAR A PASSAT A APPLICATION
-    ----------------------------------------------------------------------------
-    
-    public void addTornJardiner() {        
-    // Seleccionem jardiner    
-        Jardiner jardinerSel;
-        
-        int posComponents = selectComponent(2,null);
-        if (posComponents >= 0) {
-            jardinerSel = (Jardiner)getComponents()[posComponents];
-
-        // Seleccionem Torn
-        
-            posComponents = selectComponent(3,null);
-            if (posComponents >= 0) {
-                Torn tornsel = (Torn)getComponents()[posComponents];
-                
-        // Assignem torn al jardiner
-                jardinerSel.setTorn(tornsel);
-                
-            } else {
-                System.out.println("\nNo existeix aquest torn");
-            }
-        } else {
-            System.out.println("\nNo existeix aquest jardiner o jardinera");
-        }        
-    }
-*/
-/* métodes que desapareixen
-    ----------------------------------------------------------------------------
-    
-    public void addDissenyadorProjecte() {
-        Projecte projecteSel = null;
-        int pos = selectProjecte(null);
-
-        if (pos >= 0) {
-
-            projecteSel = this.getProjectes()[pos];
-
-            pos = selectDissenyador(null);
-
-            if (pos >= 0) {
-                projecteSel.setDissenyador(getDissenyadors()[pos]);
-            } else {
-                System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
-            }
-
-        } else {
-            System.out.println("\nNo existeix aquest projecte");
-        }
-    }
-    
-    public void addJardinerProjecte() {
-        Projecte projecteSel = null;
-        int pos = selectProjecte(null);
-
-        if (pos >= 0) {
-
-            projecteSel = this.getProjectes()[pos];
-
-            pos = selectJardiner(null);
-
-            if (pos >= 0) {
-                projecteSel.addJardiner(getJardiners()[pos]);
-            } else {
-                System.out.println("\nNo existeix aquest dissenyador o dissenyadora");
-            }
-
-        } else {
-            System.out.println("\nNo existeix aquest projecte");
-        }
-    }
-    */
     
     public void addTreballadorProjecte(int tipus){
         
@@ -585,7 +386,7 @@ public class Estudi implements Component {
     
     int posProjecte = selectComponent(4,null);
     
-        if (posProjecte == -1 || posProjecte ==-2 ){
+        if (posProjecte == -1 ){
            System.out.println("\nNo existeix aquest projecte"); 
            return false;    
            

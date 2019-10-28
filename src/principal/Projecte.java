@@ -188,9 +188,7 @@ public class Projecte implements Component{
         System.out.println("\nLes dades del projecte amb codi " + codi + " són:");
         System.out.println("\nNIF client: " + nifClient);
         System.out.println("\nPressupost: " + pressupost);
-       /* com mostrar dissenyador Treballador[x] 
-       dissenyador.showDissenyador();
-       */ 
+       
         if(finalitzat){
             System.out.println("\nEl projecte està finalitzat");
         }else{
