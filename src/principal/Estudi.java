@@ -132,6 +132,7 @@ public class Estudi implements Component {
     public void updateComponent() {
 
         System.out.println("\nNom de l'estudi: " + nom);
+        System.out.println("\nPulsa ENTER: " );
         DADES.nextLine(); //Neteja buffer
         System.out.println("\nEntra el nou nom:");
         nom = DADES.nextLine();

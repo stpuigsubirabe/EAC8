@@ -147,6 +147,7 @@ public class Projecte implements Component{
     public void updateComponent() {
 
         System.out.println("\nNIF del client: " + nifClient);
+        DADES.nextLine(); //Neteja buffer
         System.out.println("\nEntra el nou NIF:");
         nifClient = DADES.nextLine();
         System.out.println("\nPresupost del projecte: " + pressupost);
