@@ -397,7 +397,7 @@ public class Application {
                                             if (posComponent >= 0) {
                                                 jardinerSel = (Jardiner)estudiActual.getComponents()[posComponent];
                                             // Seleccionem Torn
-                                                indexSel = estudiActual.selectComponent(3,null);
+                                                posComponent = estudiActual.selectComponent(3,null);
                                                 if (posComponent >= 0) {
                                                     Torn tornsel = (Torn)estudiActual.getComponents()[posComponent];
                                             // Assignem torn al jardiner
